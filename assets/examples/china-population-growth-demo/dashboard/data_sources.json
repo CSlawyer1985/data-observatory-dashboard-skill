@@ -1,0 +1,99 @@
+{
+  "input": "population-regions-demo-processed.json",
+  "rows": 31,
+  "builder": "data-observatory-dashboard/scripts/build_treemap_dashboard.py",
+  "field_mapping": {
+    "dataUrl": "data.json",
+    "labelField": "region",
+    "groupField": "macro_region",
+    "scoreField": "growth_rate_pct",
+    "scoreLabel": "人口增长率",
+    "scoreMin": -1.2,
+    "scoreMax": 1.2,
+    "noteField": "note",
+    "modes": [
+      {
+        "key": "population",
+        "field": "population_2025_wan",
+        "label": "年末常住人口"
+      },
+      {
+        "key": "change",
+        "field": "population_change_wan",
+        "label": "人口净增减"
+      }
+    ],
+    "tooltipFields": [
+      {
+        "field": "population_2025_wan",
+        "label": "年末常住人口"
+      },
+      {
+        "field": "population_change_wan",
+        "label": "人口净增减"
+      },
+      {
+        "field": "growth_rate_pct",
+        "label": "同比增长率"
+      },
+      {
+        "field": "urbanization_rate_pct",
+        "label": "城镇化率"
+      },
+      {
+        "field": "natural_growth_rate_permille",
+        "label": "自然增长率"
+      }
+    ],
+    "tiers": [
+      {
+        "label": "收缩",
+        "min": -99.0,
+        "max": -0.5
+      },
+      {
+        "label": "微降",
+        "min": -0.5,
+        "max": -0.05
+      },
+      {
+        "label": "基本稳定",
+        "min": -0.05,
+        "max": 0.05
+      },
+      {
+        "label": "增长",
+        "min": 0.05,
+        "max": 0.5
+      },
+      {
+        "label": "高增长",
+        "min": 0.5,
+        "max": 99.0
+      }
+    ],
+    "breakdownFields": [
+      {
+        "field": "positive_change_wan",
+        "label": "正增长",
+        "score": 0.6
+      },
+      {
+        "field": "negative_change_wan",
+        "label": "负增长",
+        "score": -0.7
+      }
+    ],
+    "units": {
+      "population_2025_wan": "wan_person",
+      "population_change_wan": "wan_person",
+      "positive_change_wan": "wan_person",
+      "negative_change_wan": "wan_person",
+      "growth_rate_pct": "percent",
+      "urbanization_rate_pct": "percent",
+      "natural_growth_rate_permille": "permille"
+    },
+    "colorScheme": "growth",
+    "signature": ""
+  }
+}

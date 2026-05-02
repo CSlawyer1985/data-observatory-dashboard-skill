@@ -1,0 +1,4 @@
+display_name: Data Observatory Dashboard
+short_description: Turn arbitrary datasets into high-density interactive dashboards with source tracking.
+default_prompt: Build a high-density data observatory dashboard from my dataset, including field profiling, visual encoding choices, source notes, and a validated static frontend.
+
