@@ -1,24 +1,67 @@
-# Data Observatory Dashboard Skill
+# 📊 Data Observatory Dashboard Skill
+
+<div align="center">
+
+**高密度数据观察仪表盘 — 矩形树图方法论与交互式可视化工具**
+
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/CSlawyer1985/data-observatory-dashboard-skill)
+[![Author](https://img.shields.io/badge/author-陈石(CS)-orange.svg)](https://github.com/CSlawyer1985)
+[![Claude](https://img.shields.io/badge/Claude-Skill-purple.svg)](https://claude.ai/)
+
+矩形树图方法论 | 数据画像 | 单位硬约束 | 静态 HTML 零依赖 | 自动取数
+
+[效果预览](#-效果预览) • [核心方法](#-关键结论) • [使用流程](#-使用流程) • [完整示例](#-完整示例全国分地区人口增长观察)
+
+</div>
+
+---
+
+## 📖 项目简介
 
 本 Skill 用于把任意结构化或半结构化数据转成高密度、可交互、可追溯的数据可视化仪表盘。
 
 它最适合处理 CSV、Excel、JSON、网页表格、公开数据集、法律/金融/政策/行业报表等对象型数据。默认输出形态是：左侧统计与控制面板 + 右侧主视觉区域，矩形树图作为对象集合数据的首选视觉语法。
 
-## 效果预览
+### 核心价值
 
-下面是“全国分地区人口增长观察”的完整前端样式示例。截图使用视觉示例数据，用来展示页面气质、布局密度、颜色图例、分级概览、分组概览、结构概览和矩形树图交互效果。
+📐 **矩形树图方法论** — 先做数据画像，再选择视觉编码，不是普通图表生成器
+🎨 **双编码系统** — 面积表示规模/金额/数量，颜色表示强度/风险/增长
+📏 **单位硬约束** — 万元/亿元/%/人/件/家/次 显式处理，禁止换算歧义
+⚡ **零依赖交付** — 静态 HTML/CSS/JS + 手写 `squarify()`，直接浏览器打开
 
-![全国分地区人口增长观察示例](assets/examples/china-population-growth-demo/screenshots/population-growth-dashboard.png)
+---
 
-## 作者简介
+## 👤 作者简介
 
 **CSLawyer（陈石律师）**，中国律师、法律科技实践者、AI 工作流设计者。长期关注法律服务、数据分析、知识管理与 AI Agent 的结合，擅长把复杂材料、业务报表和公开数据转化为可复用的方法论、可审计的数据流程和高密度前端可视化工具。
 
 这个 Skill 源于对矩形树图数据观察仪表盘方法论的持续打磨，以及在法律业务报表、公开数据看板和交互式网页演示中的连续迭代。目标不是生成一次性图表，而是形成一套可迁移的数据观察仪表盘方案。
 
-## 关键结论
+---
 
-这套方案不是普通图表生成器，而是一套“数据观察仪表盘”方法论：
+## 📸 效果预览
+
+下面是"全国分地区人口增长观察"的完整前端样式示例。截图使用视觉示例数据，用来展示页面气质、布局密度、颜色图例、分级概览、分组概览、结构概览和矩形树图交互效果。
+
+![全国分地区人口增长观察示例](assets/examples/china-population-growth-demo/screenshots/population-growth-dashboard.png)
+
+---
+
+## 📊 项目数据
+
+- **📐 视觉类型**：矩形树图（treemap）为主，可扩展至散点、时间线、分组矩阵
+- **📏 单位系统**：9 种内置单位规则（万元、亿元、%、‰、人、件、家、次等）
+- **🔧 构建脚本**：2 个 Python 脚本（数据画像 + 仪表盘构建）
+- **📚 参考文档**：4 个方法论文档（视觉语法、数据契约、取数策略、实现模式）
+- **🌐 模板**：1 个零依赖 HTML 模板（手写 squarify，无需 React/Vue/D3）
+- **🎯 适用数据**：CSV、Excel、JSON、网页表格、公开数据集
+
+---
+
+## 🎯 关键结论
+
+这套方案不是普通图表生成器，而是一套"数据观察仪表盘"方法论：
 
 - 先做数据画像，再选择视觉编码。
 - 面积表示规模、金额、数量或暴露度。
@@ -30,7 +73,9 @@
 
 制作矩形树图类数据观察仪表盘时，不必默认引入 React、Vue、D3 或图表库。当前模板使用静态 HTML/CSS/JS 与手写 `squarify()`，可直接浏览器打开，也便于交付和归档。
 
-## 触发词
+---
+
+## 🏷️ 触发词
 
 下次出现以下需求时，应优先调用本 Skill：
 
@@ -48,7 +93,9 @@
 - `参考之前某个业务报表看板效果`
 - `自动获取数据并可视化`
 
-## 目录结构
+---
+
+## 📁 目录结构
 
 ```text
 data-observatory-dashboard/
@@ -69,7 +116,9 @@ data-observatory-dashboard/
     └── openai.yaml
 ```
 
-## 使用流程
+---
+
+## 🚀 使用流程
 
 ### 1. 数据获取
 
@@ -81,7 +130,7 @@ data-observatory-dashboard/
 - Markdown 表格
 - 网页表格快照
 
-如果用户要求“最新”“自动获取数据”“从官网/公开平台取数”，应先验证数据源，再记录获取日期、URL、接口或下载路径。
+如果用户要求"最新""自动获取数据""从官网/公开平台取数"，应先验证数据源，再记录获取日期、URL、接口或下载路径。
 
 ### 2. 数据画像
 
@@ -161,7 +210,9 @@ python3 scripts/build_treemap_dashboard.py data.json \
 --unit client_count:client
 ```
 
-## 单位规则
+---
+
+## 📏 单位规则
 
 单位是本 Skill 的硬约束。
 
@@ -179,7 +230,9 @@ python3 scripts/build_treemap_dashboard.py data.json \
 
 不要把 `70000 万元` 显示成 `7万`。正确口径应按 `10000 万元 = 1 亿元` 转换为 `7亿`。
 
-## 视觉规则
+---
+
+## 🎨 视觉规则
 
 默认视觉结构：
 
@@ -217,9 +270,11 @@ python3 scripts/build_treemap_dashboard.py data.json \
 - hover 时提升透明度、加描边、显示 tooltip。
 - 切换面积指标后重新计算布局与侧栏统计。
 
-## 完整示例：全国分地区人口增长观察
+---
 
-这个示例用于帮助用户直观看懂本 Skill 最终会生成什么样的前端效果。示例主题是“中国分地区人口增长数据”，适合用矩形树图表达“人口规模 × 增长强度”的结构差异。
+## 🌏 完整示例：全国分地区人口增长观察
+
+这个示例用于帮助用户直观看懂本 Skill 最终会生成什么样的前端效果。示例主题是"中国分地区人口增长数据"，适合用矩形树图表达"人口规模 × 增长强度"的结构差异。
 
 ### 数据分析口径
 
@@ -229,7 +284,7 @@ python3 scripts/build_treemap_dashboard.py data.json \
 - 国家统计局人口解读文章显示，2025 年末城镇常住人口为 `95380 万人`，比 2024 年增加 `1030 万人`，常住人口城镇化率为 `67.89%`。
 - 分地区数据建议从国家统计局数据库、中国统计年鉴、各省级统计公报或政府开放数据接口获取，并记录发布日期、统计口径和是否为常住人口。
 
-分析上不要只看“人口最多的地区”，而要同时拆开三层问题：
+分析上不要只看"人口最多的地区"，而要同时拆开三层问题：
 
 1. **规模层**：哪些地区承载人口基数最大。
 2. **变化层**：哪些地区人口净增/净减最明显。
@@ -292,7 +347,7 @@ python3 scripts/build_treemap_dashboard.py data.json \
 
 ### 样式方向
 
-前端应保持“数据观察站”气质，而不是政务大屏：
+前端应保持"数据观察站"气质，而不是政务大屏：
 
 ```css
 :root {
@@ -355,11 +410,13 @@ python3 scripts/build_treemap_dashboard.py population-regions.json \
 
 ```text
 本看板显示，人口分布仍高度集中在少数人口大省；但颜色层揭示的增长强度与规模并不完全一致。
-全国口径下，总人口仍在下降，但城镇常住人口继续增加，说明“总量收缩”和“空间再集聚”可以同时发生。
+全国口径下，总人口仍在下降，但城镇常住人口继续增加，说明"总量收缩"和"空间再集聚"可以同时发生。
 分地区解读时，应把人口自然增长、跨省流动、产业吸纳能力和城镇化阶段分开解释，避免把所有变化简单归因于出生率。
 ```
 
-## 输出文件
+---
+
+## 📦 输出文件
 
 非一次性原型建议输出：
 
@@ -371,7 +428,9 @@ python3 scripts/build_treemap_dashboard.py population-regions.json \
 - `screenshots/`：桌面与移动端验证截图。
 - `interaction-audit.json`：必要时保存交互审计结果。
 
-## 自动取数策略
+---
+
+## 🔍 自动取数策略
 
 可以自动获取数据，但要分等级处理：
 
@@ -380,9 +439,11 @@ python3 scripts/build_treemap_dashboard.py population-regions.json \
 3. 新闻、百科、第三方整理数据：只能作为辅助，需标注可信度。
 4. 登录、验证码、反爬或非公开数据：先征得用户确认，不绕过访问限制。
 
-涉及“最新”“今天”“实时”“当前”时，必须联网核验并记录日期。
+涉及"最新""今天""实时""当前"时，必须联网核验并记录日期。
 
-## 质量检查清单
+---
+
+## ✅ 质量检查清单
 
 交付前至少检查：
 
@@ -399,7 +460,9 @@ python3 scripts/build_treemap_dashboard.py population-regions.json \
 - `万元`、`亿元`、`%` 等单位是否正确。
 - 截图是否已保存。
 
-## 典型调用方式
+---
+
+## 💼 典型调用方式
 
 ```text
 请使用 data-observatory-dashboard，把这个 Excel 做成交互式数据可视化看板。
@@ -417,10 +480,88 @@ python3 scripts/build_treemap_dashboard.py population-regions.json \
 侧栏默认展开，不遮挡主画布，可以手动折叠。
 ```
 
-## 维护建议
+---
+
+## 🔧 维护建议
 
 - 新增视觉类型时，先补 `references/visual-grammar.md`，再补模板。
 - 新增单位时，先补 `references/data-contract.md`，再改构建脚本和模板格式化函数。
 - 新增自动取数方式时，先补 `references/source-strategy.md`。
 - 每次踩坑都写进 README 或 reference，而不是只修当前项目。
 - README、模板、脚本参数示例不得包含真实客户、真实案件、个人路径、私人签名或未脱敏业务数据。
+
+---
+
+## 👨‍💻 作者信息
+
+<div align="center">
+
+### 陈石（CS）
+
+**浙江海泰律师事务所 高级合伙人**
+
+[![GitHub](https://img.shields.io/badge/GitHub-CSlawyer1985-blue.svg)](https://github.com/CSlawyer1985)
+[![Email](https://img.shields.io/badge/Email-cshi@hightac.com-green.svg)](mailto:cshi@hightac.com)
+
+</div>
+
+#### 职业身份
+
+- 🏢 **浙江海泰律师事务所高级合伙人**
+- ⚖️ **专业领域**：建筑房地产、公司法、投融资及商事争议解决
+- 🎓 **执业年限**：15+ 年
+
+#### 技术专长
+
+- 🤖 **AI + 法律**：AI 与法律的深度融合探索
+- 📊 **数据可视化**：矩形树图数据观察仪表盘方法论设计
+- 🔧 **Prompt Engineering**：设计结构化、高精度的 Prompt 完成复杂法律任务
+- 💻 **技术栈**：熟悉 Python、Claude AI、前端可视化
+
+---
+
+## 📜 许可说明
+
+本项目基于 MIT 开源协议。
+
+**允许**：
+
+- ✅ 自由使用和学习
+- ✅ 在法律实务和数据分析中应用
+- ✅ 基于此项目进行改进和优化
+- ✅ 分享和传播（请保留作者信息）
+
+### 免责声明
+
+- ⚠️ 本 Skill 提供的数据可视化仅供参考
+- ⚠️ 数据来源的准确性需用户自行验证
+- ⚠️ 作者不对使用本 Skill 产生的后果承担责任
+
+---
+
+## 📦 版本信息
+
+- **版本号**：v1.0.0
+- **创建日期**：2026年5月
+- **适用范围**：结构化/半结构化数据可视化
+- **开发者**：陈石（CS）
+
+---
+
+## 🌟 Star History
+
+如果这个项目对你有帮助，请给它一个 ⭐️ Star！
+
+[![Star History Chart](https://api.star-history.com/svg?repos=CSlawyer1985/data-observatory-dashboard-skill&type=Date)](https://star-history.com/#CSlawyer1985/data-observatory-dashboard-skill&Date)
+
+---
+
+<div align="center">
+
+**让数据观察变得高密度、可交互、可追溯！**
+
+**Made with ❤️ by [陈石（CS）](https://github.com/CSlawyer1985)**
+
+**[⬆ 返回顶部](#-data-observatory-dashboard-skill)**
+
+</div>
